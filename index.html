@@ -1,1 +1,231 @@
-index.html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LENTAX | فروشگاه تخصصی لنت ترمز</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
+    background: #111;
+    color: white;
+}
+
+header {
+    background: #1b1b1b;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #e50914;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #e50914;
+}
+
+header p {
+    color: #bbb;
+}
+
+.hero {
+    padding: 50px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #222, #111);
+}
+
+.hero h1 {
+    font-size: 28px;
+}
+
+.hero span {
+    color: #e50914;
+}
+
+.hero p {
+    color: #ccc;
+    line-height: 2;
+}
+
+.search {
+    padding: 20px;
+    text-align: center;
+}
+
+input, select {
+    width: 90%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 8px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #222;
+    color: white;
+    font-size: 16px;
+}
+
+button {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.products {
+    padding: 25px 15px;
+}
+
+.products h2 {
+    text-align: center;
+    color: #e50914;
+}
+
+.card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    color: #bbb;
+}
+
+.card button {
+    width: 100%;
+}
+
+.contact {
+    background: #1b1b1b;
+    padding: 25px;
+    text-align: center;
+}
+
+footer {
+    background: #080808;
+    padding: 15px;
+    text-align: center;
+    color: #888;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">LENTAX</div>
+    <p>فروشگاه تخصصی لنت ترمز خودرو</p>
+</header>
+
+<section class="hero">
+    <h1>امنیت خودرو از <span>اینجا</span> شروع می‌شود</h1>
+    <p>
+        خرید آسان لنت ترمز خودروهای ایرانی و خارجی
+        <br>
+        کیفیت، اطمینان و انتخاب هوشمندانه
+    </p>
+</section>
+
+<section class="search">
+    <h2>لنت خودروی خود را پیدا کنید</h2>
+
+    <select id="brand">
+        <option value="">انتخاب خودرو</option>
+        <option>پراید</option>
+        <option>پژو 206</option>
+        <option>پژو 405</option>
+        <option>پژو پارس</option>
+        <option>سمند</option>
+        <option>دنا</option>
+        <option>تیبا</option>
+        <option>ساینا</option>
+        <option>کوییک</option>
+        <option>تارا</option>
+        <option>شاهین</option>
+        <option>تویوتا</option>
+        <option>هیوندای</option>
+        <option>کیا</option>
+        <option>نیسان</option>
+    </select>
+
+    <br>
+
+    <button onclick="searchProduct()">جستجوی لنت</button>
+
+    <p id="result"></p>
+</section>
+
+<section class="products">
+    <h2>محصولات فروشگاه</h2>
+
+    <div class="card">
+        <h3>لنت ترمز پراید</h3>
+        <p>مناسب خودروهای پراید</p>
+        <button onclick="contact()">استعلام قیمت</button>
+    </div>
+
+    <div class="card">
+        <h3>لنت ترمز پژو 206</h3>
+        <p>مناسب پژو 206 تیپ 2 و تیپ 5</p>
+        <button onclick="contact()">استعلام قیمت</button>
+    </div>
+
+    <div class="card">
+        <h3>لنت ترمز پژو 405</h3>
+        <p>مناسب پژو 405 و پارس</p>
+        <button onclick="contact()">استعلام قیمت</button>
+    </div>
+
+    <div class="card">
+        <h3>لنت ترمز دنا</h3>
+        <p>مناسب دنا و دنا پلاس</p>
+        <button onclick="contact()">استعلام قیمت</button>
+    </div>
+</section>
+
+<section class="contact">
+    <h2>ارتباط با فروشگاه LENTAX</h2>
+    <p>برای خرید و استعلام قیمت با ما تماس بگیرید.</p>
+    <p>شماره تماس: به‌زودی</p>
+</section>
+
+<footer>
+    © تمامی حقوق برای فروشگاه LENTAX محفوظ است.
+</footer>
+
+<script>
+function searchProduct() {
+    let brand = document.getElementById("brand").value;
+
+    if (brand === "") {
+        document.getElementById("result").innerText =
+        "لطفاً ابتدا خودروی خود را انتخاب کنید.";
+    } else {
+        document.getElementById("result").innerText =
+        "برای خودروی " + brand +
+        " با فروشگاه تماس بگیرید.";
+    }
+}
+
+function contact() {
+    alert("برای استعلام قیمت با فروشگاه تماس بگیرید.");
+}
+</script>
+
+</body>
+</html>
